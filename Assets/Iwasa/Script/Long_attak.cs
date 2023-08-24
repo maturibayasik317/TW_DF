@@ -5,7 +5,6 @@ using UnityEditor;
 
 public class Long_attak : MonoBehaviour
 {
-    
     void Start()
     {
         StartCoroutine(SearchAndShot());
@@ -15,8 +14,13 @@ public class Long_attak : MonoBehaviour
     {
         while(true)
         {
-            //”ÍˆÍ“à‚É“G‚ª‚¢‚½‚ç‘Å‚Â
+            // ã“ã“ã§æ•µã‚’æ¢ã—ã¦æ’ƒã¤
             yield return new WaitForSeconds(1.0f);
+	    var collider = Physics2D.OverlapCircle(transform.position,2.0f,LayerMask.GetMask("Enemy"));
+        if(collider != null)
+        {
+            Destroy(collider.gameObject);
+        }
         }
     }
 }
