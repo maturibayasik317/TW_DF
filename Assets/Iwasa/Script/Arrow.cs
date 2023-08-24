@@ -17,7 +17,7 @@ public class Arrow : MonoBehaviour
         var v = targetEnemy.transform.position - transform.position;
         transform.position += v.normalized * speed * Time.deltaTime;
         //“G‚Æ‚Ì‹——£‚Å‚OD‚V‚†–¢–‚Å“–‚½‚Á‚½‚Æ‚İ‚È‚·
-        if(v.magniude < 0.7f)
+        /*if(v.magniude < 0.7f)
         {
             targetEnemy.hp -= 1;
             if(targetEnemy.hp <= 0)
@@ -25,7 +25,7 @@ public class Arrow : MonoBehaviour
                 Destroy(targetEnemy.gameObject);
             }
             Destroy(gameObject);
-        }
+        }*/
     }
     
     

@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class Route : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    public Point[] points;
 
-    // Update is called once per frame
-    void Update()
+    private void OnDrawGizmosSelected()
     {
-        
+        for(var index = 0;index < points.Length - 1;index++)
+        {
+            var from = points[index].transform.position;
+            var to = points[index + 1].transform.position;
+            Gizmos.DrawLine(from,to);
+        }
     }
 }
