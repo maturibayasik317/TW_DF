@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,7 +13,7 @@ public class Arrow : MonoBehaviour
         {
             Destroy(gameObject);
             return;
-        }
+        } 
         var v = targetEnemy.transform.position - transform.position;
         transform.position += v.normalized * speed * Time.deltaTime;
         //ìGÇ∆ÇÃãóó£Ç≈ÇOÅDÇVÇÜñ¢ñûÇ≈ìñÇΩÇ¡ÇΩÇ∆Ç›Ç»Ç∑
@@ -29,4 +29,4 @@ public class Arrow : MonoBehaviour
     }
     
     
-}
+}*/
