@@ -4,15 +4,29 @@ using UnityEngine;
 
 public class Arrow : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public Enemy targetEnemy;
+    private float speed = 10;
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        if(targetEnemy == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        var v = targetEnemy.transform.position - transform.position;
+        transform.position += v.normalized * speed * Time.deltaTime;
+        //ìGÇ∆ÇÃãóó£Ç≈ÇOÅDÇVÇÜñ¢ñûÇ≈ìñÇΩÇ¡ÇΩÇ∆Ç›Ç»Ç∑
+        if(v.magniude < 0.7f)
+        {
+            targetEnemy.hp -= 1;
+            if(targetEnemy.hp <= 0)
+            {
+                Destroy(targetEnemy.gameObject);
+            }
+            Destroy(gameObject);
+        }
     }
+    
+    
 }
