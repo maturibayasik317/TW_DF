@@ -5,6 +5,7 @@ using UnityEditor;
 
 public class Long_attak : MonoBehaviour
 {
+    public Arrow arrowPrefab;
     
     void Start()
     {
@@ -20,7 +21,9 @@ public class Long_attak : MonoBehaviour
             var collider = Physics2D.OverlapCircle(transform.position,2.0f,LayerMask.GetMask("Enemy"));
             if(collider != null)
             {
-                Destroy(collider.gameObject);
+                transform.position = Quaternion.FromToRotation(Vector3.right,collider.transform.position - transform.position);
+                var arrow = Instantiate(arrowPrefab,transform.position,transform.rotation);
+                arrow.targetEnemy = collider.GetComponent<Enemy>();
             }
         }
     }
